@@ -1,0 +1,23 @@
+.vanilla-slider {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.vanilla-slider > ul {
+    position: relative;
+    left: 0;
+    -webkit-transition: 0.5s left;
+    -moz-transition: 0.5s left;
+    -ms-transition: 0.5s left;
+    -o-transition: 0.5s left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vanilla-slider > ul > li {
+    float: left;
+    width: 500px;
+    height: 300px;
+}

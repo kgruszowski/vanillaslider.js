@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Example</title>
+
+    <link rel="stylesheet" href="../src/css/vanillaslider.css">
 </head>
 <body>
     <div class="vanilla-slider">
-        <li><img src="img/1.png"></li>
-        <li><img src="img/2.png"></li>
-        <li><img src="img/3.png"></li>
-        <li><img src="img/4.png"></li>
-        <li><img src="img/5.png"></li>
+        <ul>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%201&w=500&h=300"></li>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%202&w=500&h=300"></li>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%203&w=500&h=300"></li>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%204&w=500&h=300"></li>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%205&w=500&h=300"></li>
+        </ul>
     </div>
+
+    <script type="text/javascript" src="../src/js/vanillaslider.js"></script>
+    <script>
+        window.onload = function () {
+            var slider = document.getElementsByClassName('vanilla-slider');
+            var vanillaSlider = VanillaSlider(slider);
+            vanillaSlider.init();
+            console.log(vanillaSlider)
+        }
+    </script>
 </body>
 </html>
