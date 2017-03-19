@@ -9,6 +9,7 @@ var VanillaSlider = function(elements) {
     this.ul = null;
     this.li = null;
     this.currentIndex = 0;
+    this.autoplay = null;
     this.config = {
         autoplay: true,
         autoplayTime: 3000,
@@ -29,7 +30,7 @@ VanillaSlider.prototype.getHandler = function () {
     this.ul = this.elements.querySelector(this.handlerName);
 
     if (this.ul === null) {
-        throw Error("There is no 'ul' element with class '"+this.handlerName+"'");
+        throw Error("There is no 'ul' element with class '" + this.handlerName + "'");
     }
 
     this.li = this.ul.children;
@@ -40,7 +41,9 @@ VanillaSlider.prototype.configure = function () {
     if (this.config.autoplay) {
         this.setAutoplay();
     }
-    this.createControl();
+    if (this.config.control) {
+        this.createControl();
+    }
 };
 
 VanillaSlider.prototype.init =  function (config) {
@@ -51,13 +54,22 @@ VanillaSlider.prototype.init =  function (config) {
 
 VanillaSlider.prototype.controlBindEvent = function (btnPrev, btnNext) {
     var self = this;
-    btnNext.onclick = function () {
-        self.next();
+
+    var move = function (e) {
+        var btnClasses = e.target.classList;
+        clearInterval(self.autoplay);
+
+        if (btnClasses.value.indexOf('vanilla-slider-next') !== -1) {
+            self.next();
+        } else if (btnClasses.value.indexOf('vanilla-slider-prev') !== -1) {
+            self.prev();
+        }
+
+        self.setAutoplay();
     };
 
-    btnPrev.onclick = function () {
-        self.prev();
-    };
+    btnNext.onclick = move;
+    btnPrev.onclick = move;
 };
 
 VanillaSlider.prototype.createControl = function () {
@@ -73,7 +85,7 @@ VanillaSlider.prototype.createControl = function () {
 };
 
 VanillaSlider.prototype.setAutoplay = function () {
-    setInterval(this.next.bind(this), this.config.autoplayTime);
+    this.autoplay = setInterval(this.next.bind(this), this.config.autoplayTime);
 };
 
 VanillaSlider.prototype.goTo = function (index) {
