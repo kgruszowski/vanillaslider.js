@@ -1,6 +1,7 @@
 .vanilla-slider {
     width: 500px;
     height: 300px;
+    position: relative;
     overflow: hidden;
 }
 
@@ -20,4 +21,44 @@
     float: left;
     width: 500px;
     height: 300px;
+}
+
+.vanilla-slider-nav {
+    height: 64px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -16px;
+    z-index: 1000;
+}
+
+.vanilla-slider-nav button {
+    border: none;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    font-size:24px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.vanilla-slider-nav button {
+    outline-style: none;
+}
+
+.vanilla-slider-nav button.vanilla-slider-prev {
+    float: left;
+}
+
+.vanilla-slider-nav button.vanilla-slider-next {
+    float: right;
+}
+
+.vanilla-slider-nav button.vanilla-slider-next:after {
+    content: '>';
+}
+
+.vanilla-slider-nav button.vanilla-slider-prev:after {
+    content: '<';
 }

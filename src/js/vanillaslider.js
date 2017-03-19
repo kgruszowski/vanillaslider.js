@@ -4,6 +4,7 @@ var VanillaSlider = function(elements) {
         return new VanillaSlider(elements);
     }
 
+    this.handlerName = "ul.vanilla-slider-container";
     this.elements = elements;
     this.ul = null;
     this.li = null;
@@ -11,31 +12,64 @@ var VanillaSlider = function(elements) {
     this.config = {
         autoplay: true,
         autoplayTime: 3000,
-        containerName: "vanilla-slider-container"
+        control: true
     }
 
 };
 
-VanillaSlider.prototype.init =  function (config) {
-    var HTMLElements = this.elements[0].children;
-
-    for (var i = 0, len = HTMLElements.length; i < len; i++) {
-        var tagName = HTMLElements[i].localName;
-        var classes = HTMLElements[i].classList;
-
-        if (tagName === "ul" && String.prototype.indexOf.call(classes.value, this.config.containerName) !== -1) {
-            this.ul = HTMLElements[i];
+VanillaSlider.prototype.setConfig = function(config) {
+    for (var key in config) {
+        if (this.config.hasOwnProperty(key)) {
+            this.config[key] = config[key];
         }
     }
+};
 
-    if (typeof this.ul === "undefined") {
-        throw Error("There is no 'ul' element with class '"+this.config.containerName+"'");
+VanillaSlider.prototype.getHandler = function () {
+    this.ul = this.elements.querySelector(this.handlerName);
+
+    if (this.ul === null) {
+        throw Error("There is no 'ul' element with class '"+this.handlerName+"'");
     }
 
     this.li = this.ul.children;
     this.ul.style.width = (this.li[0].clientWidth * this.li.length) + 'px';
+};
 
-    this.setAutoplay();
+VanillaSlider.prototype.configure = function () {
+    if (this.config.autoplay) {
+        this.setAutoplay();
+    }
+    this.createControl();
+};
+
+VanillaSlider.prototype.init =  function (config) {
+    this.setConfig(config);
+    this.getHandler();
+    this.configure();
+};
+
+VanillaSlider.prototype.controlBindEvent = function (btnPrev, btnNext) {
+    var self = this;
+    btnNext.onclick = function () {
+        self.next();
+    };
+
+    btnPrev.onclick = function () {
+        self.prev();
+    };
+};
+
+VanillaSlider.prototype.createControl = function () {
+    var handlerParentNode = this.ul.parentNode;
+    var controlDiv = document.createElement('div');
+    controlDiv.className = 'vanilla-slider-nav';
+    controlDiv.innerHTML = "<button class='vanilla-slider-prev'></button><button class='vanilla-slider-next'></button>";
+    handlerParentNode.appendChild(controlDiv);
+
+    var btnNext = controlDiv.querySelector('button.vanilla-slider-next');
+    var btnPrev = controlDiv.querySelector('button.vanilla-slider-prev');
+    this.controlBindEvent(btnPrev, btnNext);
 };
 
 VanillaSlider.prototype.setAutoplay = function () {
