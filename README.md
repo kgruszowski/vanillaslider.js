@@ -1,5 +1,5 @@
 # vanillaslider.js
-Light slider library written in plain javascript
+Light slider library written in plain javascript. You don't any dependencies just append stylesheet and script file and play with it.
 
 # Installation
 ```html
@@ -7,7 +7,7 @@ Light slider library written in plain javascript
 <script type="text/javascript" src="src/js/vanillaslider.js"></script>
 ```
 
-#HTML Structure
+# HTML Structure
 ```html
 <div class="vanilla-slider">
     <ul class="vanilla-slider-container col-md">
@@ -19,7 +19,7 @@ Light slider library written in plain javascript
     </ul>
 </div>
 ```
-#Run VanillaSlider
+# Run VanillaSlider
 ```javascript
 window.onload = function () {
     var slider = document.querySelector('.vanilla-slider');
