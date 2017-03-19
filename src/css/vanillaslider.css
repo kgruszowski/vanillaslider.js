@@ -1,6 +1,4 @@
 .vanilla-slider {
-    width: 500px;
-    height: 300px;
     position: relative;
     overflow: hidden;
 }
@@ -19,8 +17,6 @@
 
 .vanilla-slider > ul > li {
     float: left;
-    width: 500px;
-    height: 300px;
 }
 
 .vanilla-slider-nav {

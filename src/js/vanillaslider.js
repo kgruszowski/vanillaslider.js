@@ -33,6 +33,8 @@ VanillaSlider.prototype.getHandler = function () {
         throw Error("There is no 'ul' element with class '" + this.handlerName + "'");
     }
 
+    this.ul.parentNode.style.width = this.ul.getAttribute('data-width') + "px";
+    this.ul.parentNode.style.height = this.ul.getAttribute('data-height') + "px";
     this.li = this.ul.children;
     this.ul.style.width = (this.li[0].clientWidth * this.li.length) + 'px';
 };
