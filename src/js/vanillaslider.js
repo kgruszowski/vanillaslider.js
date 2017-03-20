@@ -13,7 +13,8 @@ var VanillaSlider = function(elements) {
     this.config = {
         autoplay: true,
         autoplayTime: 3000,
-        control: true
+        control: true,
+        pagination: true
     }
 
 };
@@ -46,6 +47,9 @@ VanillaSlider.prototype.configure = function () {
     if (this.config.control) {
         this.createControl();
     }
+    if (this.config.pagination) {
+        this.createPagination();
+    }
 };
 
 VanillaSlider.prototype.init =  function (config) {
@@ -74,6 +78,22 @@ VanillaSlider.prototype.controlBindEvent = function (btnPrev, btnNext) {
     btnPrev.onclick = move;
 };
 
+VanillaSlider.prototype.paginationBindEvent = function (paginationDiv) {
+    var self = this;
+
+    var moveTo = function (e) {
+        e.preventDefault();
+        var link = e.target;
+        clearInterval(self.autoplay);
+        self.goTo(link.getAttribute('data-slide'));
+        self.setAutoplay();
+    };
+
+    Array.prototype.forEach.call(paginationDiv.children, function (elem) {
+        elem.onclick = moveTo;
+    });
+};
+
 VanillaSlider.prototype.createControl = function () {
     var handlerParentNode = this.ul.parentNode;
     var controlDiv = document.createElement('div');
@@ -85,6 +105,21 @@ VanillaSlider.prototype.createControl = function () {
     var btnPrev = controlDiv.querySelector('button.vanilla-slider-prev');
     this.controlBindEvent(btnPrev, btnNext);
 };
+
+VanillaSlider.prototype.createPagination = function () {
+    var handlerParentNode = this.ul.parentNode;
+    var paginationDiv = document.createElement('div');
+    paginationDiv.className = 'vanilla-slider-pagination';
+
+    var content = '';
+    for (var i = 0, len = this.li.length; i < len; i++) {
+        content += '<a href="#" data-slide="' + i + '">' + (i+1) + "</a>";
+    }
+    paginationDiv.innerHTML = content;
+
+    handlerParentNode.appendChild(paginationDiv);
+    this.paginationBindEvent(paginationDiv);
+}
 
 VanillaSlider.prototype.setAutoplay = function () {
     this.autoplay = setInterval(this.next.bind(this), this.config.autoplayTime);
@@ -99,7 +134,7 @@ VanillaSlider.prototype.goTo = function (index) {
         this.currentIndex = index;
     }
 
-    this.ul.style.left = '-' + (100 * this.currentIndex+1) + '%'
+    this.ul.style.left = '-' + (100 * this.currentIndex) + '%'
 };
 
 VanillaSlider.prototype.next = function () {
