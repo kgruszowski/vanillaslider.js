@@ -34,7 +34,15 @@ window.onload = function () {
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
 autoplay | boolean | false | Enables slider autoplaying
-autoplayTime | boolean | 3000 | Determines time (in milliseconds) of viewing one slider
+autoplayTime | int | 3000 | Determines time (in milliseconds) of viewing one slider
 control | boolean | true | Show/Hide control buttons 
 pagination | boolean | false | Show/Hide pagination buttons 
+
+### Methods
+
+Method | Arguments | Description
+------ | ---- | -------
+goTo | slide : int | Move slider to the given slide
+next |  | Move slider to the next slide
+prev |  | Move slider to the previouss slide
 
