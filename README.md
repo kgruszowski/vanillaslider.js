@@ -24,7 +24,7 @@ You don't any dependencies and external libraries like jQuery, just append style
 ```javascript
 window.onload = function () {
     var slider = document.querySelector('.vanilla-slider');
-    var vanillaSlider = VanillaSlider(slider);
+    var vanillaSlider = new VanillaSlider(slider);
     vanillaSlider.init();
 };
 ```

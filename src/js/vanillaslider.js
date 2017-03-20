@@ -99,7 +99,7 @@ VanillaSlider.prototype.goTo = function (index) {
         this.currentIndex = index;
     }
 
-    this.ul.style.left = '-' + (100 * this.currentIndex) + '%'
+    this.ul.style.left = '-' + (100 * this.currentIndex+1) + '%'
 };
 
 VanillaSlider.prototype.next = function () {

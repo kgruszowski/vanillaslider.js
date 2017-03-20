@@ -11,6 +11,7 @@
     -ms-transition: 0.5s left;
     -o-transition: 0.5s left;
     list-style: none;
+    left: 0;
     padding: 0;
 }
 
@@ -29,6 +30,7 @@
 }
 
 .vanilla-slider-nav button {
+    font-family: "Helvetica", sans-serif;
     border: none;
     display: inline-block;
     width: 40px;
@@ -40,7 +42,7 @@
     border-radius: 32px;
     color: #fff;
     outline-style: none;
-    opacity: 0;
+    opacity: 0.3;
     transition: opacity 0.3s linear;
 }
 

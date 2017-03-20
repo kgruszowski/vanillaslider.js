@@ -5,6 +5,9 @@
     <title>Example</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="../src/css/vanillaslider.css">
 </head>
 <body>
@@ -19,7 +22,22 @@
             <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%205&w=900&h=600"></li>
         </ul>
     </div>
+
+    <div class="code-listing">
+        <pre class="prettyprint lang-javascript">
+ window.onload = function () {
+    var slider = document.querySelector('.vanilla-slider');
+    var vanillaSlider = new VanillaSlider(slider);
+    vanillaSlider.init({
+        autoplay: true,
+        autoplayTime: 3000,
+        control: true
+    });
+ }
+        </pre>
+    </div>
 </div>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script type="text/javascript" src="../src/js/vanillaslider.js"></script>
     <script>
         window.onload = function () {
@@ -27,7 +45,7 @@
             var vanillaSlider = VanillaSlider(slider);
             vanillaSlider.init({
                 autoplay: true,
-                autoplayTime: 5000,
+                autoplayTime: 3000,
                 control: true
             });
         }
