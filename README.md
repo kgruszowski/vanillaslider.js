@@ -34,7 +34,7 @@ window.onload = function () {
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
 autoplay | boolean | false | Enables slider autoplaying
-autoplayTime | boolean | 3000 | Determines time of viewing one slider
+autoplayTime | boolean | 3000 | Determines time (in milliseconds) of viewing one slider
 control | boolean | true | Show/Hide control buttons 
 pagination | boolean | false | Show/Hide pagination buttons 
 

@@ -11,10 +11,10 @@ var VanillaSlider = function(elements) {
     this.currentIndex = 0;
     this.autoplay = null;
     this.config = {
-        autoplay: true,
+        autoplay: false,
         autoplayTime: 3000,
         control: true,
-        pagination: true
+        pagination: false
     }
 
 };
