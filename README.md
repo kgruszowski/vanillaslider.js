@@ -2,6 +2,9 @@
 Light slider library written in plain javascript.<br/> 
 You don't any dependencies and external libraries like jQuery, just append stylesheet and script file and play with it.
 
+### Demo
+https://kgruszowski.github.io/vanillaslider.js/
+
 # Installation
 ```html
 <link rel="stylesheet" href="src/css/vanillaslider.css">
