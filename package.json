@@ -1,0 +1,26 @@
+{
+  "name": "vanillaslider.js",
+  "version": "1.0.0",
+  "description": "Light slider library written in plain javascript.<br/>",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgruszowski/vanillaslider.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kgruszowski/vanillaslider.js/issues"
+  },
+  "homepage": "https://github.com/kgruszowski/vanillaslider.js#readme"
+}
