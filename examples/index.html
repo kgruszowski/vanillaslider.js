@@ -12,14 +12,16 @@
 </head>
 <body>
 <div class="container col-md-6 col-md-offset-3">
-    <h1 class="text-center">Simple slider with autoplay</h1>
+    <h1 class="text-center">VanillaSlider</h1>
+    <hr/>
+    <h2 class="text-center">Slider with autoplay and controls</h2>
     <div class="vanilla-slider">
-        <ul class="vanilla-slider-container" data-height="600" data-width="900">
-            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%201&w=900&h=600"></li>
-            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%202&w=900&h=600"></li>
-            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%203&w=900&h=600"></li>
-            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%204&w=900&h=600"></li>
-            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%205&w=900&h=600"></li>
+        <ul class="vanilla-slider-container" data-height="300" data-width="500">
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%201&w=500&h=300"></li>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%202&w=500&h=300"></li>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%203&w=500&h=300"></li>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%204&w=500&h=300"></li>
+            <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=SLIDE%205&w=500&h=300"></li>
         </ul>
     </div>
 
@@ -32,24 +34,24 @@
         autoplay: true,
         autoplayTime: 2000,
         control: true,
-        pagination: true
     });
  }</pre>
     </div>
 </div>
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script type="text/javascript" src="../src/js/vanillaslider.js"></script>
-    <script>
-        window.onload = function () {
-            var slider = document.querySelector('.vanilla-slider');
-            var vanillaSlider = VanillaSlider(slider);
-            vanillaSlider.init({
-                autoplay: true,
-                autoplayTime: 2000,
-                control: true,
-                pagination: true
-            });
-        }
-    </script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript" src="../src/js/vanillaslider.js"></script>
+<script>
+    window.onload = function () {
+        var slider = document.querySelector('.vanilla-slider');
+        var vanillaSlider = VanillaSlider(slider);
+        vanillaSlider.init({
+            autoplay: true,
+            autoplayTime: 2000,
+            pagination: true
+        });
+
+
+    }
+</script>
 </body>
 </html>
